@@ -14,6 +14,11 @@ public class Tile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //Click message
+        if (Input.GetMouseButtonDown(0) && selected){
+            print("Clicked tile: " + gridCoords.ToString());
+        }
 		
 	}
     private void OnMouseEnter()
