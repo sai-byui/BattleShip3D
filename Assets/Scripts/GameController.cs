@@ -1,16 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
+    public static readonly int BOARDX = 8;
+    public static readonly int BOARDY = 8;
+
+    // These are set in the inspector
     public GameObject tile;
     public GameObject rb, lb;
+    public GameObject explosion;
+    public Text displayMessage;
+
+    private static GameController instance;
+
     Dictionary<Vector2, Tile> p1Map = new Dictionary<Vector2, Tile>();
     Dictionary<Vector2, Tile> p2Map = new Dictionary<Vector2, Tile>();
 
 	// Use this for initialization
 	void Start () {
+        instance = this;
         float size = tile.transform.localScale.x;// Assuming this is a square, either x or y will work
         float centerBuffer = 6f;
         print(size.ToString());
@@ -30,4 +41,21 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public static void SetMessage(string message){
+        instance.displayMessage.text = message;
+    }
+
+    public static Tile GetTile(Vector2 location, int mapNum=2){
+        if (mapNum == 1){
+            return instance.p1Map[location];
+        }
+        else{
+            return instance.p2Map[location];
+        }
+    }
+
+    public static void Explode(Vector2 location){
+        Instantiate(instance.explosion, location, Quaternion.identity);
+    }
 }

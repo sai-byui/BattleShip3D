@@ -945,6 +945,8 @@ MonoBehaviour:
   tile: {fileID: 1444954871955722, guid: 7add7eee5201043d58c0ddf2323acda3, type: 2}
   rb: {fileID: 1766879085}
   lb: {fileID: 222368941}
+  explosion: {fileID: 1432393967098912, guid: 30b322896f97b434b9e143f8a20db6fb, type: 2}
+  displayMessage: {fileID: 404806065}
 --- !u!4 &2088847456
 Transform:
   m_ObjectHideFlags: 0
