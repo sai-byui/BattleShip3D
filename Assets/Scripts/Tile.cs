@@ -22,8 +22,20 @@ public class Tile : MonoBehaviour {
         //Click message
         if (Input.GetMouseButtonDown(0) && selected){
             print("Clicked tile: " + gridCoords.ToString());
-            GameController.SetMessage("Clicked tile: " + gridCoords.ToString());
+            //GameController.SetMessage("Clicked tile: " + gridCoords.ToString());
+            GameController.SetMessage("State: " + state.ToString());
+            // Game logic
+            if (state == Tile_State.SHIP)
+                SetState(Tile_State.HIT);
+            else
+            {
+                //send a message
+                print("miss");
+                SetState(Tile_State.MISS);
+            }
+            // EXPLOSIONS!!!
             GameController.Explode(transform.position);
+            // Player turn is now false
         }
 		
 	}
@@ -48,12 +60,16 @@ public class Tile : MonoBehaviour {
             case Tile_State.EMPTY:
                 break;
             case Tile_State.HIT:
+                // Set overlay to X
                 break;
             case Tile_State.MISS:
                 break;
             case Tile_State.SHIP:
                 break;
         }
+    }
+    public Tile_State GetState(){
+        return state;
     }
 
 }

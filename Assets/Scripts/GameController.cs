@@ -13,6 +13,10 @@ public class GameController : MonoBehaviour {
     public GameObject rb, lb;
     public GameObject explosion;
     public Text displayMessage;
+    public AI_Controller player1;
+    public GameObject[] ships;
+    public GameObject hitPrefab;
+    public GameObject missPrefab;
 
     private static GameController instance;
 
@@ -24,7 +28,7 @@ public class GameController : MonoBehaviour {
         instance = this;
         float size = tile.transform.localScale.x;// Assuming this is a square, either x or y will work
         float centerBuffer = 6f;
-        print(size.ToString());
+        //print(size.ToString());
         for (int i = -3; i < 5; i++){
             for (int j = -3; j < 5; j++){
                 Tile t1 = Instantiate(tile, new Vector3(j*size - centerBuffer, i*size - .5f, 0), Quaternion.identity, lb.transform).GetComponent<Tile>();
@@ -35,6 +39,7 @@ public class GameController : MonoBehaviour {
                 t2.SetGridCoords(new Vector2(j + 3, i + 3));
             }
         }
+        player1.Placeships();
 	}
 	
 	// Update is called once per frame
@@ -57,5 +62,12 @@ public class GameController : MonoBehaviour {
 
     public static void Explode(Vector2 location){
         Instantiate(instance.explosion, location, Quaternion.identity);
+    }
+
+    public static void SpawnShip(Vector2 location, int size, float rotation){
+        Vector3 loc = GetTile(location, 1).transform.position;
+        GameObject ship = Instantiate(instance.ships[size - 2], loc, Quaternion.Euler(0f,0f, rotation));
+        ship.transform.position = ship.transform.position - (ship.transform.up/2);
+        print(ship.transform.right);
     }
 }

@@ -5,21 +5,28 @@ using UnityEngine;
 public class Ship {
 
     List<Vector2> locations = new List<Vector2>();
+    int size;
 
-    Ship(List<Vector2> vectors){
+    public Ship(List<Vector2> vectors){
         locations = vectors;
     }
+    public Ship(int size){
+        this.size = size;
+    }
 
-    void AddLocation(Vector2 location){
+    public void AddLocation(Vector2 location){
         locations.Add(location);
     }
     public bool IsSunk(){
         for (int i = 0; i < locations.Count; i++){
-            if (GameController.GetTile(locations[i]).state != Tile_State.HIT){
+            if (GameController.GetTile(locations[i]).GetState() != Tile_State.HIT){
                 return false;
             }
         }
         return true;
+    }
+    public int GetSize(){
+        return size;
     }
 
 }

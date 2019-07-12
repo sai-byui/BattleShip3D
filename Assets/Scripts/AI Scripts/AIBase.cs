@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIBase{
 
-    List<Ship> ships = new List<Ship>();
+    public List<Ship> ships = new List<Ship>();
     int shipsSunk = 0;
 
     public bool DidSink()
@@ -26,7 +26,7 @@ public class AIBase{
     public bool CheckForHit(Vector2 location)
     {
         Tile target = GameController.GetTile(location);
-        switch (target.state)
+        switch (target.GetState())
         {
             case Tile_State.MISS:
             case Tile_State.HIT:

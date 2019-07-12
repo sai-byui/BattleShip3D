@@ -113,6 +113,47 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &76024623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76024625}
+  - component: {fileID: 76024624}
+  m_Layer: 0
+  m_Name: Player1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &76024624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76024623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e619f0a62a4402381a6ef7723ce15f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipPrefabs: []
+--- !u!4 &76024625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76024623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &101538488
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +988,14 @@ MonoBehaviour:
   lb: {fileID: 222368941}
   explosion: {fileID: 1432393967098912, guid: 30b322896f97b434b9e143f8a20db6fb, type: 2}
   displayMessage: {fileID: 404806065}
+  player1: {fileID: 76024624}
+  ships:
+  - {fileID: 1989077163296058, guid: d05be49fe1c624135b706d2f69fc1b49, type: 2}
+  - {fileID: 1072974151253582, guid: 95ef89831c1c54ccaa382b7ae6881ef1, type: 2}
+  - {fileID: 1542189488838698, guid: 7c22c66e21d17495cbfb030d35d83064, type: 2}
+  - {fileID: 1848542656799482, guid: ad2b04faa22c24795b444c4447b38183, type: 2}
+  hitPrefab: {fileID: 1078288173283508, guid: 2ca119d88553340aaa848964c9e235e0, type: 2}
+  missPrefab: {fileID: 0}
 --- !u!4 &2088847456
 Transform:
   m_ObjectHideFlags: 0
